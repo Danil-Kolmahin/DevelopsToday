@@ -1,9 +1,18 @@
 import { useRouter } from 'next/router'
 
-export const useRe = () => {
+interface useReType {
+	reload: () => void,
+	redirect: (path: string) => void,
+}
+
+export const useRe = (): useReType => {
 	const router = useRouter()
 	return {
-		reload: async () => await router.replace(router.asPath),
-		redirect: async (path) => await router.push(path)
+		reload: async () => {
+			await router.replace(router.asPath)
+		},
+		redirect: async (path) => {
+			await router.push(path)
+		}
 	}
 }

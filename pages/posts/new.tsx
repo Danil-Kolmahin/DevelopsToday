@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { ReactElement, useCallback } from 'react'
 import { postsAPI } from '../../DAL/API'
 import { Formik, ErrorMessage } from 'formik'
 import Header from '../../components/Header'
@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 import { FormCard, Input } from '../../assets/styles/forms'
 import { BlackButton } from '../../assets/styles/common'
 
-const New = () => {
+const New = (): ReactElement => {
 	const router = useRouter()
 
 	const createNewPost = useCallback(async (data, { setSubmitting }) => {

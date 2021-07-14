@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 
@@ -7,11 +7,12 @@ export const ALink = styled.a`
   cursor: pointer;
 `
 
-type PropsType = {
-	href: string
+interface PropsType {
+	href: string,
+	children: React.ReactChildren | string
 }
 
-const A: React.FC<PropsType> = (props) => (
+const A = (props: PropsType): ReactElement => (
 	<Link href={props.href}>
 		<ALink {...props}>{props.children}</ALink>
 	</Link>

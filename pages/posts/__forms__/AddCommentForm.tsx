@@ -1,11 +1,18 @@
-import React, { useCallback } from 'react'
+import React, { ReactElement, useCallback } from 'react'
 import { postsAPI } from '../../../DAL/API'
 import { ErrorMessage, Formik } from 'formik'
 import { useRe } from '../../../tools/CustomHooks'
 import { FormCard, Input } from '../../../assets/styles/forms'
 import { BlackButton } from '../../../assets/styles/common'
 
-const AddCommentForm = ({ setCommentingMode, postId }) => {
+interface PropsType {
+	postId: number,
+	setCommentingMode: React.Dispatch<boolean>,
+}
+
+const AddCommentForm = (
+	{ setCommentingMode, postId }: PropsType
+): ReactElement => {
 	const { reload } = useRe()
 
 	const validate = useCallback(values => {

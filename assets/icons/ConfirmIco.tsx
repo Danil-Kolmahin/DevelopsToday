@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
+
+interface PropsType {
+	width?: number,
+	height?: number,
+}
 
 const ConfirmIco = (
-	{ width = 31.666, height = 31.666, ...props }
-) => {
+	{ width = 31.666, height = 31.666, ...props }: PropsType
+): ReactElement => {
 	return <svg
 		xmlns='http://www.w3.org/2000/svg'
 		width={width}

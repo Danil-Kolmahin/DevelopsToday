@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 
 const baseURL = 'https://simple-blog-api.crew.red/'
 
@@ -28,10 +28,10 @@ export type comment = {
 }
 
 export const postsAPI = {
-	getAllPosts: () => instance.get('posts'),
-	getPost: (postId) => instance.get(`posts/${postId}?_embed=comments`),
-	createPost: (post: post) => instance.post('posts', post),
-	updatePost: (postId, post: post) => instance.put(`posts/${postId}`, post),
-	deletePost: (postId) => instance.delete(`posts/${postId}`),
-	createComment: (comment: comment) => instance.post('comments', comment)
+	getAllPosts: (): Promise<AxiosResponse> => instance.get('posts'),
+	getPost: (postId: number): Promise<AxiosResponse> => instance.get(`posts/${postId}?_embed=comments`),
+	createPost: (post: post): Promise<AxiosResponse> => instance.post('posts', post),
+	updatePost: (postId: number, post: post): Promise<AxiosResponse> => instance.put(`posts/${postId}`, post),
+	deletePost: (postId: number): Promise<AxiosResponse> => instance.delete(`posts/${postId}`),
+	createComment: (comment: comment): Promise<AxiosResponse> => instance.post('comments', comment)
 }

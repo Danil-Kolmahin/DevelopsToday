@@ -2,6 +2,12 @@
 
 import { createSlice } from '@reduxjs/toolkit'
 
+export interface PostType {
+	postId: number,
+	title: string,
+	body: string
+}
+
 const slice = createSlice({
   name: 'postsReducer',
   initialState: {

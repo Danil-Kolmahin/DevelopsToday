@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { ReactElement, useCallback } from 'react'
 import { postsAPI } from '../../../DAL/API'
 import { ErrorMessage, Formik } from 'formik'
 import ConfirmIco from '../../../assets/icons/ConfirmIco'
@@ -7,7 +7,16 @@ import { useRe } from '../../../tools/CustomHooks'
 import { FormCard, Input } from '../../../assets/styles/forms'
 import { Icon, Row } from '../../../assets/styles/common'
 
-const AddCommentForm = ({ title, body, id, setEditMode }) => {
+interface PropsType {
+	title: string,
+	body: string,
+	id: number,
+	setEditMode: React.Dispatch<boolean>,
+}
+
+const AddCommentForm = (
+	{ title, body, id, setEditMode }: PropsType
+): ReactElement => {
 	const { reload } = useRe()
 
 	const validate = useCallback(values => {

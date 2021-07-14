@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
+
+interface PropsType {
+	width?: number,
+	height?: number,
+}
 
 const EditIco = (
-	{ width = 31.666, height = 31.666, ...props }
-) => {
+	{ width = 31.666, height = 31.666, ...props }: PropsType
+): ReactElement => {
 	return <svg
 		width={width}
 		height={height}

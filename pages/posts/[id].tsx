@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { ReactElement, useCallback, useState } from 'react'
 import DeleteIco from '../../assets/icons/DeleteIco'
 import EditIco from '../../assets/icons/EditIco'
 import { postsAPI } from '../../DAL/API'
@@ -8,8 +8,22 @@ import UpdatePostForm from './__forms__/UpdatePostForm'
 import { useRe } from '../../tools/CustomHooks'
 import { BlackButton, Center, Icon, Row } from '../../assets/styles/common'
 import { Comment } from '../../assets/styles/comments'
+import { GetServerSidePropsContext } from 'next'
+import { AxiosResponse } from 'axios'
 
-const Post = ({ post }) => {
+interface PropsType {
+	post: {
+		title: string,
+		body: string,
+		comments: {
+			id: number,
+			body: string
+		}[],
+		id: number
+	}
+}
+
+const Post = ({ post }: PropsType): ReactElement => {
 	const { title, body, comments, id } = post
 	const [isEditModeOn, setEditMode] = useState(false)
 	const [isCommentingOn, setCommentingMode] = useState(false)
@@ -59,8 +73,18 @@ const Post = ({ post }) => {
 	</>
 }
 
-export const getServerSideProps = async (context) => {
-	const post = await postsAPI.getPost(context.query.id)
+interface propsType {
+	props: {
+		post: AxiosResponse<PropsType>
+	}
+}
+
+export const getServerSideProps = async (
+	context: GetServerSidePropsContext
+): Promise<propsType> => {
+	const post = await postsAPI.getPost(
+		Number.parseFloat(context.query.id as string)
+	)
 	return { props: { post } }
 }
 

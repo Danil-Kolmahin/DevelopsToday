@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import Meta from './Meta'
 import A from './A'
 import { Row } from '../assets/styles/common'
 
-const Header = (props) => (
+interface PropsType {
+	title?: string,
+	description?: string
+}
+
+const Header = ({title, description}: PropsType): ReactElement => (
 	<>
-		<Meta title={props.title} description={props.description} />
+		<Meta title={title} description={description} />
 		<Row>
 			<A href={'/'}>Main</A>
 			<A href={'/posts'}>Posts</A>
