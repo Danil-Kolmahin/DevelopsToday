@@ -23,7 +23,7 @@ const New = () => {
 	}, [])
 
 	return <>
-		<Header />
+		<Header title='New post' />
 		<h1>Create new post</h1>
 		<Formik
 			initialValues={{ title: '', body: '' }}

@@ -9,7 +9,7 @@ const POSTS_NUM = 2
 
 const Posts = ({ posts }) => (
 	<>
-		<Header />
+		<Header title='Posts' />
 		<h1>Posts</h1>
 		<CreatePostBtn href={'/posts/new'}>Create new post</CreatePostBtn>
 		<GridTemplate>

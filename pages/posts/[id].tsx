@@ -21,8 +21,8 @@ const Post = ({ post }) => {
 	}, [])
 
 	return <>
-		<Header />
-		<h1>Post</h1>
+		<Header title={'Post #' + id} />
+		<h1>{'Post #' + id}</h1>
 
 		{
 			isEditModeOn ?
@@ -35,7 +35,7 @@ const Post = ({ post }) => {
 						<Icon onClick={() => setEditMode(true)}><EditIco /></Icon>
 						<Icon onClick={deletePost}><DeleteIco /></Icon>
 					</Row>
-					<h4>{body || 'Empty body'}</h4>
+					<span>{body || 'Empty body'}</span>
 				</>
 		}
 

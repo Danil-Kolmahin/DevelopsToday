@@ -3,9 +3,9 @@ import Meta from './Meta'
 import A from './A'
 import { Row } from '../assets/styles/common'
 
-const Header = () => (
+const Header = (props) => (
 	<>
-		<Meta />
+		<Meta title={props.title} description={props.description} />
 		<Row>
 			<A href={'/'}>Main</A>
 			<A href={'/posts'}>Posts</A>

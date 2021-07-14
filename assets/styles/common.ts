@@ -29,6 +29,7 @@ export const BlackButtonStyle = `
   -ms-user-select: none;
   user-select: none;
   vertical-align: middle;
+  margin: 10px;
 `
 
 export const Row = styled.div`

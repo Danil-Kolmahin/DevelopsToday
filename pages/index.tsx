@@ -10,7 +10,7 @@ const Main = styled.div`
 
 const Index = () => (
 	<>
-		<Header />
+		<Header title='Main'  />
 		<Main>Main</Main>
 	</>
 )
