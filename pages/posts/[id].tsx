@@ -2,13 +2,12 @@ import React, { useCallback, useState } from 'react'
 import DeleteIco from '../../assets/icons/DeleteIco'
 import EditIco from '../../assets/icons/EditIco'
 import { postsAPI } from '../../DAL/API'
-import Header from '../../assets/Header'
+import Header from '../../components/Header'
 import AddCommentForm from './__forms__/AddCommentForm'
 import UpdatePostForm from './__forms__/UpdatePostForm'
-import {
-	Center, CommentButton, Icon, Row, Comment
-} from '../../assets/styles/main'
 import { useRe } from '../../tools/CustomHooks'
+import { BlackButton, Center, Icon, Row } from '../../assets/styles/common'
+import { Comment } from '../../assets/styles/comments'
 
 const Post = ({ post }) => {
 	const { title, body, comments, id } = post
@@ -46,9 +45,9 @@ const Post = ({ post }) => {
 					postId={id} setCommentingMode={setCommentingMode}
 				/> :
 				<Center>
-					<CommentButton onClick={() => setCommentingMode(true)}>
+					<BlackButton onClick={() => setCommentingMode(true)}>
 						Comment
-					</CommentButton>
+					</BlackButton>
 				</Center>
 		}
 

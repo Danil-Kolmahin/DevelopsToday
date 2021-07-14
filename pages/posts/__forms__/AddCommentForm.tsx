@@ -1,10 +1,9 @@
 import React, { useCallback } from 'react'
 import { postsAPI } from '../../../DAL/API'
-import { ErrorMessage, Form, Formik } from 'formik'
-import {
-	Center, CommentButton, FormCard, Input
-} from '../../../assets/styles/main'
+import { ErrorMessage, Formik } from 'formik'
 import { useRe } from '../../../tools/CustomHooks'
+import { FormCard, Input } from '../../../assets/styles/forms'
+import { BlackButton } from '../../../assets/styles/common'
 
 const AddCommentForm = ({ setCommentingMode, postId }) => {
 	const { reload } = useRe()
@@ -31,17 +30,13 @@ const AddCommentForm = ({ setCommentingMode, postId }) => {
 			onSubmit={createComment}
 		>
 			{({ isSubmitting }) => (
-				<Form>
-					<Center>
-						<FormCard>
-							<Input type='text' name='body' />
-							<ErrorMessage name='body' component='div' />
-							<CommentButton type='submit' disabled={isSubmitting}>
-								Submit
-							</CommentButton>
-						</FormCard>
-					</Center>
-				</Form>
+				<FormCard>
+					<Input type='text' name='body' />
+					<ErrorMessage name='body' component='div' />
+					<BlackButton type='submit' disabled={isSubmitting}>
+						Submit
+					</BlackButton>
+				</FormCard>
 			)}
 		</Formik>
 	)

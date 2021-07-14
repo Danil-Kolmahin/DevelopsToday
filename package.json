@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/KolmaginDanil/DevelopsToday#readme",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.6.0",
     "axios": "^0.21.1",
     "formik": "^2.2.9",
     "next": "^11.0.1",

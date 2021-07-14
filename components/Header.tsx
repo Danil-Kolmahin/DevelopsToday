@@ -1,7 +1,7 @@
 import React from 'react'
 import Meta from './Meta'
-import A from '../components/A'
-import { Row } from './styles/main'
+import A from './A'
+import { Row } from '../assets/styles/common'
 
 const Header = () => (
 	<>

@@ -1,9 +1,10 @@
 import React, { useCallback } from 'react'
 import { postsAPI } from '../../DAL/API'
-import { Formik, Form, ErrorMessage } from 'formik'
-import Header from '../../assets/Header'
+import { Formik, ErrorMessage } from 'formik'
+import Header from '../../components/Header'
 import { useRouter } from 'next/router'
-import { Center, CommentButton, FormCard, Input } from '../../assets/styles/main'
+import { FormCard, Input } from '../../assets/styles/forms'
+import { BlackButton } from '../../assets/styles/common'
 
 const New = () => {
 	const router = useRouter()
@@ -29,19 +30,15 @@ const New = () => {
 			validate={validate} onSubmit={createNewPost}
 		>
 			{({ isSubmitting }) => (
-				<Form>
-					<Center>
-						<FormCard>
-							<Input type='text' name='title' />
-							<ErrorMessage name='title' component='div' />
-							<Input type='text' name='body' />
-							<ErrorMessage name='body' component='div' />
-							<CommentButton type='submit' disabled={isSubmitting}>
-								Submit
-							</CommentButton>
-						</FormCard>
-					</Center>
-				</Form>
+				<FormCard>
+					<Input type='text' name='title' />
+					<ErrorMessage name='title' component='div' />
+					<Input type='text' name='body' />
+					<ErrorMessage name='body' component='div' />
+					<BlackButton type='submit' disabled={isSubmitting}>
+						Submit
+					</BlackButton>
+				</FormCard>
 			)}
 		</Formik>
 	</>
