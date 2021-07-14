@@ -36,7 +36,7 @@ const New = (): ReactElement => {
 					<Input type='text' name='body' />
 					<ErrorMessage name='body' component='div' />
 					<BlackButton type='submit' disabled={isSubmitting}>
-						Submit
+						Create
 					</BlackButton>
 				</FormCard>
 			)}
