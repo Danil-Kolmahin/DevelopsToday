@@ -9,19 +9,21 @@ export interface PostType {
 }
 
 const slice = createSlice({
-  name: 'postsReducer',
-  initialState: {
-    posts: [],
-  },
-  reducers: {
-    addPost: (state, action) => {
+	name: 'postsReducer',
+
+	initialState: {
+		posts: []
+	},
+
+	reducers: {
+		addPost: (state, action) => {
 			state.posts.push(action.payload)
-		},
-  },
+		}
+	}
 })
 
 export const postsReducer = slice.reducer
 
 export const {
-	addPost,
+	addPost
 } = slice.actions

@@ -25,6 +25,7 @@ const New = (): ReactElement => {
 	return <>
 		<Header title='New post' />
 		<h1>Create new post</h1>
+
 		<Formik
 			initialValues={{ title: '', body: '' }}
 			validate={validate} onSubmit={createNewPost}

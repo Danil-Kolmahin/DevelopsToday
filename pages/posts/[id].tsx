@@ -1,15 +1,14 @@
 import React, { ReactElement, useCallback, useState } from 'react'
-import DeleteIco from '../../assets/icons/DeleteIco'
-import EditIco from '../../assets/icons/EditIco'
 import { postsAPI } from '../../DAL/API'
 import Header from '../../components/Header'
 import AddCommentForm from './__forms__/AddCommentForm'
 import UpdatePostForm from './__forms__/UpdatePostForm'
 import { useRe } from '../../tools/CustomHooks'
-import { BlackButton, Center, Icon, Row } from '../../assets/styles/common'
+import { BlackButton, Center, Row } from '../../assets/styles/common'
 import { Comment } from '../../assets/styles/comments'
 import { GetServerSidePropsContext } from 'next'
 import { AxiosResponse } from 'axios'
+import IconButton from '../../assets/icons/IconButton'
 
 interface PropsType {
 	post: {
@@ -46,8 +45,8 @@ const Post = ({ post }: PropsType): ReactElement => {
 				<>
 					<Row>
 						<h2>{title || 'Empty title'}</h2>
-						<Icon onClick={() => setEditMode(true)}><EditIco /></Icon>
-						<Icon onClick={deletePost}><DeleteIco /></Icon>
+						<IconButton onClick={() => setEditMode(true)} iconName='edit' />
+						<IconButton onClick={deletePost} iconName='delete' />
 					</Row>
 					<span>{body || 'Empty body'}</span>
 				</>

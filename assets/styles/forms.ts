@@ -6,8 +6,9 @@ export const FormCard = styled(Form)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-	${CardStyle};
+  ${CardStyle};
   align-items: center;
+
   & > * {
     margin: 5px;
   }

@@ -8,7 +8,7 @@ interface PropsType {
 	description?: string
 }
 
-const Header = ({title, description}: PropsType): ReactElement => (
+const Header = ({ title, description }: PropsType): ReactElement => (
 	<>
 		<Meta title={title} description={description} />
 		<Row>

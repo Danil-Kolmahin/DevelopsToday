@@ -50,13 +50,6 @@ export const Center = styled.div`
   justify-content: center;
 `
 
-export const Icon = styled.button`
-  background: none !important;
-  border: none;
-  padding: 0 !important;
-  cursor: pointer;
-`
-
 export const BlackButton = styled.button`
-	${BlackButtonStyle};
+  ${BlackButtonStyle};
 `

@@ -1,11 +1,10 @@
 import React, { ReactElement, useCallback } from 'react'
 import { postsAPI } from '../../../DAL/API'
 import { ErrorMessage, Formik } from 'formik'
-import ConfirmIco from '../../../assets/icons/ConfirmIco'
-import CancelIco from '../../../assets/icons/CancelIco'
 import { useRe } from '../../../tools/CustomHooks'
 import { FormCard, Input } from '../../../assets/styles/forms'
-import { Icon, Row } from '../../../assets/styles/common'
+import { Row } from '../../../assets/styles/common'
+import IconButton from '../../../assets/icons/IconButton'
 
 interface PropsType {
 	title: string,
@@ -39,12 +38,14 @@ const AddCommentForm = (
 			validate={validate}
 			onSubmit={updatePost}
 		>
-			{({ isSubmitting }) => (
+			{({ isSubmitting, handleSubmit }) => (
 				<FormCard>
 					<Row>
 						<Input type='text' name='title' />
-						<Icon type='submit' disabled={isSubmitting}><ConfirmIco /></Icon>
-						<Icon onClick={() => setEditMode(false)}><CancelIco /></Icon>
+						<IconButton onClick={handleSubmit} disabled={isSubmitting}
+												iconName='confirm'
+						/>
+						<IconButton onClick={() => setEditMode(false)} iconName='cancel' />
 					</Row>
 					<ErrorMessage name='title' component='div' />
 					<Input type='text' name='body' />

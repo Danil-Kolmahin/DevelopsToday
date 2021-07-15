@@ -10,7 +10,7 @@ const Main = styled.div`
 
 const Index = (): ReactElement => (
 	<>
-		<Header title='Main'  />
+		<Header title='Main' />
 		<Main>Main</Main>
 	</>
 )

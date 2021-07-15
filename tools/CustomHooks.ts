@@ -7,10 +7,12 @@ interface useReType {
 
 export const useRe = (): useReType => {
 	const router = useRouter()
+
 	return {
 		reload: async () => {
 			await router.replace(router.asPath)
 		},
+
 		redirect: async (path) => {
 			await router.push(path)
 		}

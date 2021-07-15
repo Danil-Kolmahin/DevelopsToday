@@ -20,7 +20,9 @@ const Posts = ({ posts }: PropsType): ReactElement => (
 	<>
 		<Header title='Posts' />
 		<h1>Posts</h1>
+
 		<CreatePostBtn href={'/posts/new'}>Create new post</CreatePostBtn>
+
 		<GridTemplate>
 			{posts.map(({ id, title, body }, i) => (
 					<Post key={id} href={'/posts/' + id}
